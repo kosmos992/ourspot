@@ -22,7 +22,7 @@ function addMarker(position, idx, _) {
       position: position, // 마커의 위치
       image: markerImage,
     });
-  // marker.setMap(kakaoMap); // 지도 위에 마커를 표출합니다
+  // marker.setMap(kakaoMap); // 지도 위에 마커를 표출
 
   return marker;
 }
@@ -50,6 +50,7 @@ const Kakaomap = props => {
       marker.setMap(null);
     }
   }
+
   function removeMarkers() {
     for (const mark of markers) {
       mark.setMap(null);
@@ -99,6 +100,7 @@ const Kakaomap = props => {
       }
       setReset(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showResult, reset]);
 
   useEffect(() => {
@@ -156,6 +158,7 @@ const Kakaomap = props => {
       }
       setMarkers(mark);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchKeyword, showResult, kakaoMap]);
 
   useEffect(() => {
@@ -165,6 +168,7 @@ const Kakaomap = props => {
     for (const marker of markers) {
       marker.setMap(kakaoMap);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [markers]);
 
   useEffect(() => {
@@ -185,6 +189,7 @@ const Kakaomap = props => {
     }
 
     setStartMarkers(newMarkers);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [start]);
 
   return <Map ref={container}></Map>;

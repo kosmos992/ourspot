@@ -12,8 +12,6 @@ const Search = () => {
   const [showResult, setShowResult] = useState(null);
   const [reset, setReset] = useState(false);
 
-  // const [results, setResults] = useState([]);
-
   const handleStart = coords => {
     const newStart = [...start];
     newStart.push(coords);
@@ -112,13 +110,14 @@ const Search = () => {
           }}
           text={'초기화'}
           onHover="red"
+          margin="5px"
         ></Button>
         <>
           {start.map((el, i) => {
             return (
-              <span key={el.x + el.y} onClick={() => deleteStart(i)}>
+              <Starts key={el.x + el.y} onClick={() => deleteStart(i)}>
                 {el.name}
-              </span>
+              </Starts>
             );
           })}
         </>
@@ -173,6 +172,16 @@ const AllResults = styled.div`
   width: 100%;
   height: 500px;
   overflow-y: scroll;
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2f3542;
+    height: 20px;
+  }
+  ::-webkit-scrollbar-track {
+    background: lightgrey;
+  }
 `;
 
 const Address = styled.span`
@@ -194,6 +203,10 @@ const Marker = styled.div`
   background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png)
     no-repeat;
   background-position: ${({ idx }) => `0 ${36 - 46 * idx}px`};
+`;
+
+const Starts = styled.button`
+  background-color: lightblue;
 `;
 
 export default Search;

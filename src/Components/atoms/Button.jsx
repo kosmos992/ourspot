@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const Button = ({ text, onClick, onHover = '#5bb2ff' }) => {
+const Button = ({ text, onClick, margin = '0px', onHover = '#5bb2ff' }) => {
   return (
-    <ButtonStyle onClick={onClick} onHover={onHover}>
+    <ButtonStyle onClick={onClick} onHover={onHover} margin={margin}>
       {text}
     </ButtonStyle>
   );
@@ -17,6 +17,7 @@ const ButtonStyle = styled.button`
   :hover {
     background-color: ${props => props.onHover};
   }
+  margin: ${props => props.margin};
 `;
 
 export default Button;
